@@ -14,7 +14,7 @@
 #define pinLight 2    // (нога 7) Вход датчика освещенности (13кОм на землю, датчик к +3.3в)
 #define pinBtn 4      // (нога 3) Кнопка на корпусе
 
-#define sittingTime 300000  // 5*60*1000 Время сидения, после которого пшикаем
+#define sittingTime 240000  // 4*60*1000 Время сидения, после которого пшикаем
 #define shortSitTime 120000 // 2*60*1000 Короткое время (для жены)
 // #define sittingTime 15000 // 15 сек. для отладки
 
@@ -65,18 +65,18 @@ bool prevState = lightState;
     } else {                // Свет выключили
       if (lightOn !=0) {
         if(millis() - lightOn > sittingTime) {  // Свет горел дольше заданного значения, нужно пшикать
-          ledBlink(3);
-          pshik(3);
+          ledBlink(1);
+          pshik(4);
         } else {
           if(millis() - lightOn > shortSitTime) {  // Свет горел по меньшему порогу, нужно пшикать, но меньше
             ledBlink(1);
-            pshik(1);
+            pshik(2);
           }
         }
       }
       // И тут засыпаем, т.к. свет уже погас и пшики сделаны (если должны были)
       lightOn = 0;
-      ledBlink(6);
+      ledBlink(3);
       system_sleep();
     }
   }
