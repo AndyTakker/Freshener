@@ -2,10 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"name": "Code",
-			"path": "Code"
 		}
 	],
 	"settings": {}
