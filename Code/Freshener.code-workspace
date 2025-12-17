@@ -6,6 +6,10 @@
 		{
 			"name": "Code",
 			"path": "."
+		},
+		{
+			"name": "test",
+			"path": "../../../PlatformIO/test"
 		}
 	],
 	"settings": {}

@@ -6,7 +6,9 @@
 В состоянии, когда свет включен, можно пшикнуть кнопкой на морде.
 */
 #include <Arduino.h>
+#ifndef CH32V_ARDUINO
 #include <avr/sleep.h>
+#endif
 
 #define pinPress 0    // (нога 5) Выход нажатия на распылитель
 #define pinRelease 1  // (нога 6) Выход возврата распылителя в исходное положение
@@ -129,6 +131,7 @@ void ledBlink(uint8_t cnt) {
   }
 }
 
+#ifndef CH32V_ARDUINO
 // Переход в спячку с пробуждением по пину PB2 (PCINT)
 void system_sleep() {
 
@@ -148,7 +151,11 @@ void system_sleep() {
 
   sei();                                  // Enable interrupts
 }
-
 ISR(PCINT0_vect) {
     // Тут делать ничего не нужно. Нам достаточно проснуться.
 }
+#else
+void system_sleep() {}
+#endif
+
+
