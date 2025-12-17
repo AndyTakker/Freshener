@@ -2,15 +2,15 @@
 @chcp 1251
 set /p name=Enter comment:
 setlocal
-rem Р—Р°РґР°С‘Рј Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+rem Задаём значение по умолчанию
 set "COMMENT="QuickAutoUpdate""
 
-rem РџСЂРѕРІРµСЂСЏРµРј, РїРµСЂРµРґР°РЅ Р»Рё РїР°СЂР°РјРµС‚СЂ
+rem Проверяем, передан ли параметр
 if not "%name%"=="" (
     set "COMMENT=%name%"
 )
 
-echo РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РєРѕРјРјРµРЅС‚Р°СЂРёР№: %COMMENT%
+echo Используется комментарий: %COMMENT%
 
 @echo ===== Fetch from github =====
 git fetch
